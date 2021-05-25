@@ -74,10 +74,10 @@ public class Admincontroller {
         model.addAttribute("categories",categoryService.getAllCategory());
         return "productsAdd";
     }
-    @PostMapping("/admin/product/add")
+    @PostMapping("/admin/products/add")
     public String productAddPost(@ModelAttribute("productDTO")ProductDTO productDTO,
                                  @RequestParam("productImage")MultipartFile file,
-                                 @RequestParam("imgname")String imgName)throws IOException{
+                                 @RequestParam("imgName")String imgName)throws IOException{
 
         Product product=new Product();
         product.setId(product.getId());
