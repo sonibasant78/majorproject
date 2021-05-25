@@ -77,14 +77,14 @@ public class Admincontroller {
     @PostMapping("/admin/product/add")
     public String productAddPost(@ModelAttribute("productDTO")ProductDTO productDTO,
                                  @RequestParam("productImage")MultipartFile file,
-                                 @RequestParam("imageName")String imgName)throws IOException{
+                                 @RequestParam("imgname")String imgName)throws IOException{
 
         Product product=new Product();
         product.setId(product.getId());
         product.setName(productDTO.getName());
         product.setCategory(categoryService.getCategoryById(productDTO.getCategoryId()).get());
-        product.setPrice(product.getPrice());
-        product.setWeight(product.getWeight());
+        product.setPrice(productDTO.getPrice());
+        product.setWeight(productDTO.getWeight());
         product.setDescription(productDTO.getDescription());
         String imageUUID;
         if(!file.isEmpty()){
