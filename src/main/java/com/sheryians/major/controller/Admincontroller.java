@@ -65,7 +65,7 @@ public class Admincontroller {
     //product section
     @GetMapping("/admin/products")
     public String products(Model model){
-       model.addAttribute("product" , productService.getAllProduct());
+       model.addAttribute("products" , productService.getAllProduct());
         return "products";
     }
     @GetMapping("/admin/products/add")
@@ -106,7 +106,7 @@ public class Admincontroller {
     }
     @GetMapping("/admin/product/update/{id}")
     public String updateProductGet(@PathVariable long id, Model model){
-        Product product=productService.getproductById(id).get();
+       Product product=productService.getproductById(id).get();
        ProductDTO productDTO=new ProductDTO();
        productDTO.setId(product.getId());
        productDTO.setName(product.getName());
