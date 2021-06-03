@@ -1,5 +1,6 @@
 package com.sheryians.major.controller;
 
+import com.sheryians.major.global.GlobalData;
 import com.sheryians.major.repository.RoleRepository;
 import com.sheryians.major.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ public class LoginController {
 
     @GetMapping("/login")
     public String login(){
+        GlobalData.cart.clear();
         return "login";
     }
 
