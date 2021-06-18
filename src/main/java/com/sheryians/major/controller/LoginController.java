@@ -27,4 +27,15 @@ public class LoginController {
     public String registerGet(){
         return "register";
     }
+     @PostMapping("/register")
+    public String registerUser(@ModelAttribute("user") User user){
+        System.out.print(user.toString());
+        User newuser= new User();
+        newuser.setFirstName(user.getFirstName());
+        newuser.setLastName(user.getLastName());
+        newuser.setEmail(user.getEmail());
+        newuser.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        userRepository.save(newuser);
+        return "redirect:/login";
+    }
 }
